@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
+// import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import Header from "../../components/Header";
 import { fetchDataTwelve } from "../../components/stockchart/calls/twelveFetch";
 import { cleanDataTwelve } from "../../components/stockchart/functions/cleanDataTwelve";
@@ -13,7 +13,7 @@ import { newsStructure } from "../../shared/types";
 
 export const profile = async (symbol: string) => {
   const KEY = "3webKAWsjx3ZcjQFuTEKw7KnphafhzG8";
-  const symbo = "IBM";
+  // const symbo = "IBM";
   const res = await fetch(
     `https://financialmodelingprep.com/api/v3/profile/${symbol}?apikey=${KEY}`
   );
@@ -27,8 +27,8 @@ export const profile = async (symbol: string) => {
 };
 
 export const fetchNews = async () => {
-  const KEY = "3webKAWsjx3ZcjQFuTEKw7KnphafhzG8";
-  const pages = "0";
+  // const KEY = "3webKAWsjx3ZcjQFuTEKw7KnphafhzG8";
+  // const pages = "0";
   const res = await fetch(
     `https://finnhub.io/api/v1/news?category=general&token=com0sfpr01qqra7gbgn0com0sfpr01qqra7gbgng`
   );
@@ -36,7 +36,11 @@ export const fetchNews = async () => {
   return data;
 };
 
-const Dashboard = ({ symbol, setSymbol }) => {
+type Props = {
+  symbol: string;
+};
+
+const Dashboard = ({ symbol }: Props) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 

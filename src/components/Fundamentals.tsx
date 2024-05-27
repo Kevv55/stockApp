@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Typography, Box } from "@mui/material";
 import { getFundamentalsData } from "../functions/getFundamentals";
-type Props = {};
 
-function formatNumber(n) {
+type Props = { symbol: string; description: string };
+
+function formatNumber(n: number) {
   const num = n * 1000000;
   if (num >= 1e12) {
     return (num / 1e12).toFixed(2).replace(/\.00$/, "") + "T";

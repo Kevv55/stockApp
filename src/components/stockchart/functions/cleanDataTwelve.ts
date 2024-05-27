@@ -1,5 +1,4 @@
 import { ScriptableContext } from "chart.js";
-import { sample } from "../../sampledata";
 
 export const cleanDataTwelve = (data: any, symbol: any) => {
   try {

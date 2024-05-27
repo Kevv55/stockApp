@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Topbar from "./global/Topbar";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
@@ -18,12 +18,9 @@ function App() {
           <div className="app sidebar">
             <Sidebar />
             <main className="content">
-              <Topbar symbol={symbol} setSymbol={setSymbol} />
+              <Topbar setSymbol={setSymbol} />
               <Routes>
-                <Route
-                  path="/"
-                  element={<Dashboard symbol={symbol} setSymbol={setSymbol} />}
-                />
+                <Route path="/" element={<Dashboard symbol={symbol} />} />
               </Routes>
             </main>
           </div>

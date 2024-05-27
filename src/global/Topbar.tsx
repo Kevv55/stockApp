@@ -1,22 +1,17 @@
 import { Box, IconButton, useTheme } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ColorModeContext, tokens } from "../theme";
-import { InputBase } from "@mui/material";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import SearchIcon from "@mui/icons-material/Search";
 import SearchBar from "../components/SearchBar";
-import AlignItemsList from "../components/ListItems";
 
-const Topbar = ({ symbol, setSymbol }) => {
-  const [searchBar, setSearchBar] = useState<boolean>(false);
+type Props = {
+  setSymbol: (value: any) => void;
+};
+
+const Topbar = ({ setSymbol }: Props) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [results, setResults] = useState([]);
-
   const colorMode = useContext(ColorModeContext);
 
   return (
@@ -46,20 +41,7 @@ const Topbar = ({ symbol, setSymbol }) => {
         backgroundColor={colors.primary[400]}
         borderRadius={"3px"}
       >
-        <Box>
-          {/* <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" /> */}
-          <SearchBar symbol={symbol} setSymbol={setSymbol} />
-          {/* <IconButton type="button" sx={{ p: 1 }}>
-            <SearchIcon />
-          </IconButton> */}
-          <Box sx={{ width: "100%" }} display={"flex"}>
-            {/* {showResults ? <AlignItemsList /> : <></>} */}
-          </Box>
-        </Box>
-        {/* <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-        <IconButton type="button" sx={{ p: 1 }}>
-          <SearchIcon />
-        </IconButton> */}
+        <SearchBar setSymbol={setSymbol} />
       </Box>
     </Box>
   );

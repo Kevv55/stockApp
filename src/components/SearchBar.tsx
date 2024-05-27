@@ -4,16 +4,12 @@ import { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import AlignItemsList from "./ListItems";
 import ClearIcon from "@mui/icons-material/Clear";
-import { importance } from "../staticData/countriesList";
-import { sortCountries } from "../functions/sortData";
 
 export const fetchData = async (value: string) => {
-  // setLoading(true);
   console.log("Fetching for: ", value);
   const res = await fetch("https://api.twelvedata.com/stocks");
   const data = await res.json();
-  const result = data.data.filter((user) => {
-    // console.log(user);
+  const result = data.data.filter((user: any) => {
     return (
       value &&
       user &&
@@ -22,31 +18,18 @@ export const fetchData = async (value: string) => {
     );
   });
 
-  // setResults(sortCountries(importance, result));
-  // setLoading(false);
-  // setResults(result);
-  // console.log("input was: ", value);
-  console.log(result);
-  // console.log(results);
   return result;
 };
 
-const SearchBar = ({ symbol, setSymbol }) => {
+type Props = {
+  setSymbol: (value: any) => void;
+};
+
+const SearchBar = ({ setSymbol }: Props) => {
   const [input, setInput] = useState<string>("");
   const [showResults, setShowResults] = useState<boolean>(false);
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  const handleChange = (value: any) => {
-    setInput(value);
-    if (input.length >= 1) {
-      fetchData(input);
-      setShowResults(true);
-    }
-  };
-  if (input.length == 0) {
-    // setShowResults(false);
-  }
 
   console.log(results);
 
