@@ -3,6 +3,7 @@ import InputBase from "@mui/material/InputBase";
 import { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import AlignItemsList from "./ListItems";
+import ClearIcon from "@mui/icons-material/Clear";
 import { importance } from "../staticData/countriesList";
 import { sortCountries } from "../functions/sortData";
 
@@ -67,21 +68,28 @@ const SearchBar = ({ symbol, setSymbol }) => {
     <Box>
       <InputBase
         sx={{ ml: 2, flex: 1 }}
-        placeholder="Search"
+        placeholder="Type the company's Ticker..."
         value={input}
         onChange={(e) => {
           setInput(e.target.value);
           // console.log(e.target.value);
         }}
       />
-      <IconButton type="button" sx={{ p: 1 }}>
-        <SearchIcon />
+      <IconButton
+        type="button"
+        sx={{ p: 1 }}
+        onClick={() => {
+          setShowResults(false);
+          setInput("");
+        }}
+      >
+        {showResults ? <ClearIcon /> : <SearchIcon />}
       </IconButton>
       <Box sx={{ zIndex: 40, position: "fixed" }}>
         {loading ? (
           <Box>
             <Typography>Loading...</Typography>
-            <Typography>{input}</Typography>
+            {/* <Typography>{input}</Typography> */}
           </Box>
         ) : (
           <></>

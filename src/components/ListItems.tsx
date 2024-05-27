@@ -21,8 +21,10 @@ export default function AlignItemsList({ results, setSymbol }) {
   }
 
   return (
-    <div>
-      <List sx={{ maxWidth: 200, bgcolor: "background.paper" }}>
+    <div style={{ position: "fixed" }}>
+      <List
+        sx={{ maxWidth: 200, bgcolor: "background.paper", overflow: "visible" }}
+      >
         {results.map((item, index) => (
           <Items
             ticker={item.symbol}

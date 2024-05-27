@@ -8,14 +8,14 @@ import Sidebar from "./global/Sidebar";
 
 function App() {
   const [theme, colorMode] = useMode();
-  const [symbol, setSymbol] = useState("IBM");
+  const [symbol, setSymbol] = useState<string>("IBM");
 
   return (
     <>
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <div className="app">
+          <div className="app sidebar">
             <Sidebar />
             <main className="content">
               <Topbar symbol={symbol} setSymbol={setSymbol} />

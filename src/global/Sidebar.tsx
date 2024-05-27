@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  Typography,
+  accordionDetailsClasses,
+  useTheme,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import avatar from "../assets/user.png";
+import { WatchListCard } from "@watchlist/card/src";
+import { Data, gainLoss } from "./WatchListData";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -32,6 +39,12 @@ const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [selected, setSelected] = useState("Dashboard");
+  const [amznData, setAmznData] = useState([]);
+
+  // console.log(Data.Amazon.stockData);
+  // console.log(amznData);
+
+  // console.log(AmazonStockData);
 
   {
     /**editing some of the properties of react-side-bar pro we want the background to match the overal theme */
@@ -55,6 +68,7 @@ const Sidebar = () => {
         "& .pro-menu-item.active": {
           color: "#6870fa !important",
         },
+        height: "100%",
       }}
     >
       <ProSidebar collapsed={collapsed}>
@@ -133,13 +147,34 @@ const Sidebar = () => {
               Data
             </Typography>
 
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              My Watchlist
-            </Typography>
+            {collapsed ? (
+              <></>
+            ) : (
+              <Typography
+                variant="h6"
+                color={colors.grey[300]}
+                sx={{ m: "15px 0 5px 20px" }}
+              >
+                My Watchlist
+              </Typography>
+            )}
+
+            <Box>
+              {collapsed ? (
+                <></>
+              ) : (
+                <WatchListCard
+                  companyName="Amazon Inc."
+                  Ticker="AMZN"
+                  price="$180.75"
+                  upside="20%"
+                  exchange="NYSE"
+                  stockData={Data.Amazon.stockData}
+                  passedData={true}
+                  lossgain={gainLoss}
+                />
+              )}
+            </Box>
           </Box>
         </Menu>
       </ProSidebar>

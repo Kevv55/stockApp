@@ -5,7 +5,7 @@ export const cleanDataTwelve = (data: any, symbol: any) => {
   try {
     if (data == "default") {
       console.log("API error displaying sample data");
-      return sample;
+      return "error";
     } else {
       const timeSeries = data.values;
 
@@ -42,6 +42,6 @@ export const cleanDataTwelve = (data: any, symbol: any) => {
     }
   } catch (err) {
     console.log("Error cleaning data, try again! Error code: ", err);
-    return sample;
+    return "error";
   }
 };
