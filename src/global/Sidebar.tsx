@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import "react-pro-sidebar/dist/css/styles.css";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
+// import "react-pro-sidebar/dist/css/styles.css";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../theme";
@@ -36,7 +36,7 @@ const Item = ({ title, to, icon, selected, setSelected }: Props) => {
   );
 };
 
-const Sidebar = () => {
+const SideBar = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -63,7 +63,7 @@ const Sidebar = () => {
         height: "100%",
       }}
     >
-      <ProSidebar collapsed={collapsed}>
+      <Sidebar>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <MenuItem
@@ -169,8 +169,8 @@ const Sidebar = () => {
             </Box>
           </Box>
         </Menu>
-      </ProSidebar>
+      </Sidebar>
     </Box>
   );
 };
-export default Sidebar;
+export default SideBar;
