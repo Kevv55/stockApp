@@ -1,13 +1,7 @@
-import { useEffect, useState } from "react";
-import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { useState } from "react";
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
-import {
-  Box,
-  IconButton,
-  Typography,
-  accordionDetailsClasses,
-  useTheme,
-} from "@mui/material";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -16,7 +10,15 @@ import avatar from "../assets/user.png";
 import { WatchListCard } from "@watchlist/card/src";
 import { Data, gainLoss } from "./WatchListData";
 
-const Item = ({ title, to, icon, selected, setSelected }) => {
+type Props = {
+  title: string;
+  to: string;
+  icon: any;
+  selected: any;
+  setSelected: (value: any) => void;
+};
+
+const Item = ({ title, to, icon, selected, setSelected }: Props) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -39,16 +41,6 @@ const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [selected, setSelected] = useState("Dashboard");
-  const [amznData, setAmznData] = useState([]);
-
-  // console.log(Data.Amazon.stockData);
-  // console.log(amznData);
-
-  // console.log(AmazonStockData);
-
-  {
-    /**editing some of the properties of react-side-bar pro we want the background to match the overal theme */
-  }
 
   return (
     <Box

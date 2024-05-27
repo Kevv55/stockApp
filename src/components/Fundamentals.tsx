@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Typography, Box } from "@mui/material";
 import { getFundamentalsData } from "../functions/getFundamentals";
+import { DataStructure } from "../shared/types";
 
 type Props = { symbol: string; description: string };
 
@@ -20,18 +21,16 @@ function formatNumber(n: number) {
 }
 
 const Fundamentals = ({ symbol, description }: Props) => {
-  const [fundamentals, getFundamentals] = useState([]);
+  const [fundamentals, getFundamentals] = useState<DataStructure>();
   const [established, setEstablished] = useState(false);
 
   useEffect(() => {
-    getFundamentalsData(symbol).then((data) => {
+    getFundamentalsData(symbol).then((data: DataStructure) => {
       getFundamentals(data);
       setEstablished(true);
     });
   }, [symbol]);
 
-  // console.log(fundamentals);
-  // const beta = "Beta: " + fundamentals.metric["10DayAverageTradingVolume"];
   return (
     <Box>
       <Typography variant="h4" sx={{ marginBottom: "2%" }}>

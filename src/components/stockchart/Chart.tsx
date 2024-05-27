@@ -9,7 +9,6 @@ import {
   Tooltip,
   Legend,
   Filler,
-  ScriptableContext,
 } from "chart.js";
 import { useEffect } from "react";
 import { fetchDataTwelve } from "./calls/twelveFetch";
@@ -56,21 +55,21 @@ const options = {
   },
 };
 
-const defaultData = {
-  // labels: [
-  //   2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
-  // ],
-  datasets: [
-    {
-      label: "No. of downloads (K)",
-      // data: [2, 6, 9, 7, 11, 15, 12, 13, 16, 18, 20, 21],
-      borderColor: "#C8ECCC",
-      backgroundColor: "#F0FAF1",
-      pointBorderColor: "#AAA",
-      pointBackgroundColor: "#FEF1F1",
-    },
-  ],
-};
+// const defaultData = {
+//   // labels: [
+//   //   2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024,
+//   // ],
+//   datasets: [
+//     {
+//       label: "No. of downloads (K)",
+//       // data: [2, 6, 9, 7, 11, 15, 12, 13, 16, 18, 20, 21],
+//       borderColor: "#C8ECCC",
+//       backgroundColor: "#F0FAF1",
+//       pointBorderColor: "#AAA",
+//       pointBackgroundColor: "#FEF1F1",
+//     },
+//   ],
+// };
 
 type Props = {
   stockData: any;

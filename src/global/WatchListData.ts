@@ -1,6 +1,4 @@
 import { ScriptableContext } from "chart.js";
-import { fetchDataTwelve } from "../components/stockchart/calls/twelveFetch";
-import { cleanDataTwelve } from "../components/stockchart/functions/cleanDataTwelve";
 
 const amznValues = [
   187.42999, 183.27, 184.31, 181.47, 178.74001, 176.94, 178.08, 179.94,

@@ -8,7 +8,7 @@ import Sidebar from "./global/Sidebar";
 
 function App() {
   const [theme, colorMode] = useMode();
-  const [symbol, setSymbol] = useState<string>("IBM");
+  const [symbol, setSymbol] = useState<string>("SPX");
 
   return (
     <>
