@@ -8,6 +8,7 @@ UI libraries used:
 
 
 API providers: 
+
 All keys are free to obtain
 - TwelveData (https://twelvedata.com/)
 - Financial Modelling prep (https://site.financialmodelingprep.com/)
