@@ -1,5 +1,17 @@
-To preview it, clone the repository and run:
-```
-npm run dev
-```
-![image](https://github.com/Kevv55/stockApp/assets/100497778/e9e5e502-d782-4a72-a5a2-823f77671332)
+Project deployed here:
+https://main.d37rzjukns4d6.amplifyapp.com/
+
+Built with: React/Typescript
+UI libraries used: 
+- Material UI (https://mui.com/material-ui/)
+- ChartJS (https://react-chartjs-2.js.org/)
+
+
+API providers: 
+All keys are free to obtain
+- TwelveData (https://twelvedata.com/)
+- Financial Modelling prep (https://site.financialmodelingprep.com/)
+- Finhub (https://finnhub.io/)
+- AlphaVantage (https://www.alphavantage.co/)
+- API Ninja (https://api-ninjas.com/)
+
